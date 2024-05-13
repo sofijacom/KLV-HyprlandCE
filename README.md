@@ -1,4 +1,4 @@
-# Assembly of KLV-HyprlandCE
+# 💖 Assembly of KLV-HyprlandCE 💖
 
 ![Screenshot_08-May_20-10-10_21812](https://github.com/sofijacom/KLV-HyprlandCE/assets/107557749/728e739d-9376-4768-96b7-307c83afda1d)
 
