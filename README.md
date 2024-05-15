@@ -1,6 +1,6 @@
-# 💧 Assembly of KLV-HyprlandCE 💧
+# 💧 Сборка KLV-HyprlandCE 💧
 
-![Screenshot_08-May_20-10-10_21812](https://github.com/sofijacom/KLV-HyprlandCE/assets/107557749/728e739d-9376-4768-96b7-307c83afda1d)
+![Скриншот_08-май_20-10-10_21812](https://github.com/sofijacom/KLV-HyprlandCE/assets/107557749/728e739d-9376-4768-96b7-307c83afda1d)
 
 
 ##
@@ -46,10 +46,10 @@ Example of using a .plug file:
 ./f_00_Void_wayland_hyprland_0.39_no-kernelBASE.plug
 ```
 
-***f_00_Void_wayland_hyprland_0.39_no-kernelBASE.plug***  builds a  ***(root filesystem)***  for the Arch Linux-based Hyprland desktop operating system, similar to **KLV-Hyprland**.
+***f_00_Void_wayland_hyprland_0.39_no-kernelBASE.plug***  builds a  ***(root filesystem)***  for the Arch Linux-based Hyprland desktop operating system, similar to **КЛВ-Хайпрланд**.
 
 To create a complete distribution, all other utilities, tools and configurations are downloaded from a centralized repository and installed as a .tar.gz file.
 
 <p align="center">	
-  <img src="https://github.com/sofijacom/sofijacom/blob/main/gray0_ctp_on_line.svg?sanitize=true" />
+  <img src="https://github.com/sofijacom/sofijacom/blob/49e18fe1d7c2223884efd95af9370dcb84697427/icons_line/gray0_ctp_on_line.svg?sanitize=true" />
 </p>
