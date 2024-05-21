@@ -1,8 +1,8 @@
 
 <h3 align="center">
-	<img src="https://github.com/sofijacom/KLV-HyprlandCE/blob/135bab2f6f38e2744190a1564f119fd8a5c379ab/Sparkles.webp" alt="Sparkles" width="38" height="38" />
+	<img src="https://github.com/sofijacom/KLV-HyprlandCE/blob/Activity/Sparkles.webp" alt="Sparkles" width="38" height="38" />
 	 Сборка KLV-HyprlandCE 
-	<img src="https://github.com/sofijacom/KLV-HyprlandCE/blob/135bab2f6f38e2744190a1564f119fd8a5c379ab/Sparkles.webp" alt="Sparkles" width="38" height="38" />
+	<img src="https://github.com/sofijacom/KLV-HyprlandCE/blob/Activity/Sparkles.webp" alt="Sparkles" width="38" height="38" />
 </h3>
 
 ![Скриншот_08-май_20-10-10_21812](https://github.com/sofijacom/KLV-HyprlandCE/assets/107557749/728e739d-9376-4768-96b7-307c83afda1d)
