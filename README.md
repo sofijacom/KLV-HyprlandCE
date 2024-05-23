@@ -17,11 +17,11 @@
 
    - `cd KLV-HyprlandCE`
 
-3) Place the build script  `KLbuild_Void_hyprland_0.39_swayBASE.sh` in the created folder.
+3) Place the build script  `KLbuild_Void_hyprland_0.40_swayBASE.sh` in the created folder.
    
-4) Make it executable.`chmod +x KLbuild_Void_hyprland_0.39_swayBASE.sh`
+4) Make it executable.`chmod +x KLbuild_Void_hyprland_0.40_swayBASE.sh`
 
-5) Enter in terminal `./KLbuild_Void_hyprland_0.39_swayBASE.sh`
+5) Enter in terminal `./KLbuild_Void_hyprland_0.40_swayBASE.sh`
 
 6) Wait for the build to finish.
 
@@ -41,17 +41,17 @@ mksquashfs 07firstrib_rootfs 07KLV-HyprlandCE-x.x.sfs -noappend -comp xz -b 512k
 FirstRib-KLV build script. 
 
 ```
-./KLbuild_Void_hyprland_0.39_swayBASE.sh
+./KLbuild_Void_hyprland_0.40_swayBASE.sh
 ```
 FirstRib-KLV build script PLUG file.
 
 Example of using a .plug file:
 
 ```
-./f_00_Void_wayland_hyprland_0.39_no-kernelBASE.plug
+./f_00_Void_wayland_hyprland_0.40_no-kernelBASE.plug
 ```
 
-***f_00_Void_wayland_hyprland_0.39_no-kernelBASE.plug***  builds a  ***(root filesystem)***  for the Arch Linux-based Hyprland desktop operating system, similar to **КЛВ-Хайпрланд**.
+***f_00_Void_wayland_hyprland_0.40_no-kernelBASE.plug***  builds a  ***(root filesystem)***  for the Arch Linux-based Hyprland desktop operating system, similar to **КЛВ-Хайпрланд**.
 
 To create a complete distribution, all other utilities, tools and configurations are downloaded from a centralized repository and installed as a .tar.gz file.
 
