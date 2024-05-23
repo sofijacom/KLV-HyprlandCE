@@ -1,6 +1,6 @@
 #!/bin/bash
 # Sofiya Created: 06.01.2024 Licence: MIT
-# KLbuild_Void_hyprland_swayBASE.sh version 1.00 -CE-5.2
+# KLbuild_Void_hyprland_swayBASE.sh version 1.00 -CE-5.4
 # Revision date:05.07.2024 
 
 # General Build Instructions:
