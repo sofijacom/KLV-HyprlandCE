@@ -1,7 +1,7 @@
 # f_00_Void_wayland_hyprland_no-kernelBASE.plug
 # Sofiya Creation date 06.01.2024; Revision date:05.07.2024 
 # Copyright FirstRib team 06.01.2024+; Licence MIT (aka X11 license)
-# version="1.0"; revision="CE-5.2"
+# version="1.0"; revision="CE-5.4"
 # Can boot result using suitable huge-kernel/00modules/01firmware and FR skeleton initrd
 
 ## NOTES:
