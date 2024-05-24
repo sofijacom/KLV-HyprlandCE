@@ -7,6 +7,7 @@
 
 ![2024-05-24_22-29](https://github.com/sofijacom/KLV-HyprlandCE/assets/107557749/b33d0be4-c55d-4f05-8143-c3c13803e43a)
 
+![2024-05-24_23-10](https://github.com/sofijacom/KLV-HyprlandCE/assets/107557749/13010218-94a5-4d9d-a852-c11559cc6a7e)
 
 ##
 
