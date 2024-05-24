@@ -1,7 +1,7 @@
 
 <h3 align="center">
 	<img src="https://github.com/sofijacom/KLV-HyprlandCE/blob/Activity/Sparkles.webp" alt="Sparkles" width="38" height="38" />
-	 Сборка KLV-HyprlandCE 
+	 KLV-HyprlandCE 
 	<img src="https://github.com/sofijacom/KLV-HyprlandCE/blob/Activity/Sparkles.webp" alt="Sparkles" width="38" height="38" />
 </h3>
 
