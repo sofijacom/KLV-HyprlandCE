@@ -55,7 +55,7 @@ ln -s /usr/share/examples/pipewire/20-pipewire-pulse.conf "${XDG_CONFIG_HOME}/pi
 # ln -s /usr/share/alsa/alsa.conf.d/99-pipewire-default.conf /etc/alsa/conf.d
 
 # Applications installed (alter these according to your wishes)xterm
-echo wayvnc swappy wlclock grim zenity slurp grimshot maim micro pfetch \
+echo wayvnc swappy wlclock grim zenity slurp grimshot maim micro pfetch hddtemp \
 | xargs -n1 xbps-install -Sy
 echo imv lxtask foot sakura geany leafpad pcmanfm gsimplecal-gtk3 ranger nnn git vim fish-shell \
 | xargs -n1 xbps-install -y
