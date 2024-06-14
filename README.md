@@ -54,7 +54,7 @@ Example of using a .plug file:
 ./f_00_Void_wayland_hyprland_0.41_no-kernelBASE.plug
 ```
 
-***f_00_Void_wayland_hyprland_0.41_no-kernelBASE.plug***  builds a  ***(root filesystem)***  for the Arch Linux-based Hyprland desktop operating system, similar to **КЛВ-Хайпрланд**.
+***f_00_Void_wayland_hyprland_0.41_no-kernelBASE.plug***  builds a  ***(root filesystem)***  for the Arch Linux-based Hyprland desktop operating system, similar to **KLV-Hyprland**.
 
 To create a complete distribution, all other utilities, tools and configurations are downloaded from a centralized repository and installed as a .tar.gz file.
 
