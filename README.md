@@ -12,6 +12,9 @@
 ![Screenshot_16-фев_11-55-58_20011](https://github.com/user-attachments/assets/3b297a6e-c5ad-4bdc-823e-0e66dbbc5e40)
 
 
+![Screenshot_27-фев_05-34-21_1432](https://github.com/user-attachments/assets/919673ca-1ff5-497f-9c15-d52da96874a6)
+
+
 ##
 
 
