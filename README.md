@@ -11,6 +11,9 @@
 ![2024-05-24_22-29](https://github.com/sofijacom/KLV-HyprlandCE/assets/107557749/e47d2377-fe62-4571-94a5-89a2fd1c821b)
 
 
+![Screenshot_16-фев_11-55-58_20011](https://github.com/user-attachments/assets/3b297a6e-c5ad-4bdc-823e-0e66dbbc5e40)
+
+
 ##
 
 
