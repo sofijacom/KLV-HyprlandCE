@@ -60,7 +60,7 @@ Example of using a .plug file:
 
 ***f_00_Void_wayland_hyprland_0.41_no-kernelBASE.plug***  builds a  ***(root filesystem)***  for the Arch Linux-based Hyprland desktop operating system, similar to **KLV-Hyprland**.
 
-To create a complete distribution, all other utilities, tools and configurations are downloaded from a centralized repository and installed as a .tar.gz file.
+To create a complete distribution, all other utilities, tools and configurations are downloaded from a centralized repository.
 
 <p align="center">	
   <img src="https://github.com/sofijacom/sofijacom/blob/49e18fe1d7c2223884efd95af9370dcb84697427/icons_line/gray0_ctp_on_line.svg?sanitize=true" />
