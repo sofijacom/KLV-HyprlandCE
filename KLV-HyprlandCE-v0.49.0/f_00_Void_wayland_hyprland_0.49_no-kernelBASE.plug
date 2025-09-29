@@ -1,0 +1,371 @@
+# f_00_Void_wayland_hyprland_no-kernelBASE.plug
+# Sofiya Creation date 06.01.2024; Revision date:29.09.2025
+# Copyright FirstRib team 06.01.2024+; Licence MIT (aka X11 license)
+# version="0.49.0_1"; revision="CE-6.0"
+# Can boot result using suitable huge-kernel/00modules/01firmware and FR skeleton initrd
+
+## NOTES:
+# JUST READ THE FOLLOWING TO UNDERSTAND HOW TO CUSTOMISE THE BUILD!
+# 
+
+# Install packages
+#
+echo base-minimal ncurses-base file \
+| xargs -n1 xbps-install -Syu
+echo eudev seatd dbus-elogind elogind polkit sudo mesa-dri libgpg-error \
+| xargs -n1 xbps-install -y
+echo xdg-utils binutils snappy curl wget unzip xz zstd zip 7zip p7zip fuse zsync rsync \
+| xargs -n1 xbps-install -y
+echo gvfs gvfs-mtp gvfs-smb gvfs-cdda ntfs-3g \
+| xargs -n1 xbps-install -y
+echo bash vpm light chrony \
+| xargs -n1 xbps-install -y  # or maybe use ntpd?
+echo NetworkManager kmod libkmod \
+| xargs -n1 xbps-install -y  # includes wpa_supplicant as dependency
+echo python3 python3-PyVirtualDisplay python3-gobject python3-requests \
+| xargs -n1 xbps-install -Sy
+echo SwayNotificationCenter wofi rofi wmenu lavalauncher Waybar swaybg \
+| xargs -n1 xbps-install -y
+echo wayland-utils wev wtype wl-clipboard wayclip wf-recorder wob wdisplays light \
+| xargs -n1 xbps-install -y
+echo sway-audio-idle-inhibit wlr-randr wlsunset wlogout playerctl conky pywal swww \
+| xargs -n1 xbps-install -y
+echo font-bh-ttf cantarell-fonts font-liberation-ttf font-awesome6 font-fira-ttf font-inconsolata-otf dejavu-fonts-ttf noto-fonts-emoji nerd-fonts-symbols-ttf fonts-roboto-ttf \
+| xargs -n1 xbps-install -Sy
+echo qt5-wayland qt6-wayland bc j jq yad xorg-server-xwayland daemonize herbe xlsclients glfw-wayland \
+| xargs -n1 xbps-install -y
+
+# System Audio/Multimedia /wireplumber
+echo pipewire wireplumber alsa-pipewire pavucontrol pamixer ffmpeg mpv qpwgraph cava cava-gui \
+| xargs -n1 xbps-install -Sy
+mkdir -p /etc/pipewire/pipewire.conf.d
+ln -s /usr/share/examples/wireplumber/10-wireplumber.conf /etc/pipewire/pipewire.conf.d/
+mkdir -p /etc/pipewire/pipewire.conf.d
+ln -s /usr/share/examples/pipewire/20-pipewire-pulse.conf /etc/pipewire/pipewire.conf.d/
+
+# for system-wide customization or for individual customization.
+: "${XDG_CONFIG_HOME:=${HOME}/.config}"
+mkdir -p "${XDG_CONFIG_HOME}/pipewire/pipewire.conf.d"
+ln -s /usr/share/examples/wireplumber/10-wireplumber.conf "${XDG_CONFIG_HOME}/pipewire/pipewire.conf.d/"
+ln -s /usr/share/examples/pipewire/20-pipewire-pulse.conf "${XDG_CONFIG_HOME}/pipewire/pipewire.conf.d/"
+
+# ALSA Integration
+mkdir -p /etc/alsa/conf.d
+ln -s /usr/share/alsa/alsa.conf.d/50-pipewire.conf /etc/alsa/conf.d
+ln -s /usr/share/alsa/alsa.conf.d/99-pipewire-default.conf /etc/alsa/conf.d
+
+# Applications installed (alter these according to your wishes)xterm
+echo wayvnc swappy wlclock grim zenity slurp grimshot maim micro pfetch hddtemp \
+| xargs -n1 xbps-install -Sy
+echo imv lxtask foot sakura geany leafpad pcmanfm gsimplecal-gtk3 ranger nnn git vim fish-shell \
+| xargs -n1 xbps-install -y
+echo galculator firefox smplayer brightnessctl mtpaint xdg-user-dirs hyprpicker imagemagick eza kvantum \
+| xargs -n1 xbps-install -y
+echo wvkbd clipman cliphist breeze-snow-cursor-theme breeze-obsidian-cursor-theme dconf nwg-look \
+| xargs -n1 xbps-install -y
+echo xwininfo xmessage cpupower neofetch octoxbps squashfs-tools gettext xhost e2fsprogs dosfstools mtools syslinux \
+| xargs -n1 xbps-install -y
+echo btop htop rsClock cmatrix gparted w3m w3m-img xarchiver kitty fontmanager \
+| xargs -n1 xbps-install -y
+
+# Bluetooth
+# bluez-alsa
+echo bluez blueman libspa-bluetooth \
+| xargs -n1 xbps-install -y
+ln -s /etc/sv/bluetoothd /etc/runit/runsvdir/default/bluetoothd
+usermod -G bluetooth -a spot
+
+# Cups print service
+echo cups cups-filters cups-pdf samba-cups \
+| xargs -n1 xbps-install -y
+ln -s /etc/sv/cupsd /etc/runit/runsvdir/default/cupsd
+
+# Change default shell to fish
+# chsh -s /bin/fish
+
+#### Get KLV custom packages ####
+#
+# Create and switch to build directory
+mkdir -p /root/Build
+cd /root/Build
+
+wget -c https://gitlab.com/sofija.p2018/kla-ot2/-/raw/main/KLA-Hyprland/hyprland-0.49.0_1/aquamarine-0.8.0_2.x86_64.xbps
+wget -c https://gitlab.com/sofija.p2018/kla-ot2/-/raw/main/KLA-Hyprland/hyprland-0.49.0_1/glaze-4.4.3_1.x86_64.xbps
+wget -c https://gitlab.com/sofija.p2018/kla-ot2/-/raw/main/KLA-Hyprland/hyprland-0.49.0_1/hyprcursor-0.1.12_1.x86_64.xbps
+wget -c https://gitlab.com/sofija.p2018/kla-ot2/-/raw/main/KLA-Hyprland/hyprland-0.49.0_1/hyprgraphics-0.1.3_2.x86_64.xbps
+wget -c https://gitlab.com/sofija.p2018/kla-ot2/-/raw/main/KLA-Hyprland/hyprland-0.49.0_1/hypridle-0.1.6_2.x86_64.xbps
+wget -c https://gitlab.com/sofija.p2018/kla-ot2/-/raw/main/KLA-Hyprland/hyprland-0.49.0_1/hyprland-0.49.0_1.x86_64.xbps
+wget -c https://gitlab.com/sofija.p2018/kla-ot2/-/raw/main/KLA-Hyprland/hyprland-0.49.0_1/hyprland-devel-0.49.0_1.x86_64.xbps
+wget -c https://gitlab.com/sofija.p2018/kla-ot2/-/raw/main/KLA-Hyprland/hyprland-0.49.0_1/hyprland-protocols-0.6.4_1.x86_64.xbps
+wget -c https://gitlab.com/sofija.p2018/kla-ot2/-/raw/main/KLA-Hyprland/hyprland-0.49.0_1/hyprland-qt-support-0.1.0_1.x86_64.xbps
+wget -c https://gitlab.com/sofija.p2018/kla-ot2/-/raw/main/KLA-Hyprland/hyprland-0.49.0_1/hyprland-qtutils-0.1.4_1.x86_64.xbps
+wget -c https://gitlab.com/sofija.p2018/kla-ot2/-/raw/main/KLA-Hyprland/hyprland-0.49.0_1/hyprlang-0.6.3_1.x86_64.xbps
+wget -c https://gitlab.com/sofija.p2018/kla-ot2/-/raw/main/KLA-Hyprland/hyprland-0.49.0_1/hyprlock-0.8.2_1.x86_64.xbps
+wget -c https://gitlab.com/sofija.p2018/kla-ot2/-/raw/main/KLA-Hyprland/hyprland-0.49.0_1/hyprpaper-0.7.5_1.x86_64.xbps
+wget -c https://gitlab.com/sofija.p2018/kla-ot2/-/raw/main/KLA-Hyprland/hyprland-0.49.0_1/hyprpolkitagent-0.1.2_1.x86_64.xbps
+wget -c https://gitlab.com/sofija.p2018/kla-ot2/-/raw/main/KLA-Hyprland/hyprland-0.49.0_1/hyprsunset-0.2.0_1.x86_64.xbps
+wget -c https://gitlab.com/sofija.p2018/kla-ot2/-/raw/main/KLA-Hyprland/hyprland-0.49.0_1/hyprsysteminfo-0.1.3_1.x86_64.xbps
+wget -c https://gitlab.com/sofija.p2018/kla-ot2/-/raw/main/KLA-Hyprland/hyprland-0.49.0_1/hyprutils-0.7.1_1.x86_64.xbps
+wget -c https://gitlab.com/sofija.p2018/kla-ot2/-/raw/main/KLA-Hyprland/hyprland-0.49.0_1/hyprwayland-scanner-0.4.4_1.x86_64.xbps
+wget -c https://gitlab.com/sofija.p2018/kla-ot2/-/raw/main/KLA-Hyprland/hyprland-0.49.0_1/libspng-0.7.4_1.x86_64.xbps
+wget -c https://gitlab.com/sofija.p2018/kla-ot2/-/raw/main/KLA-Hyprland/hyprland-0.49.0_1/sdbus-cpp-2.1.0_1.x86_64.xbps
+wget -c https://gitlab.com/sofija.p2018/kla-ot2/-/raw/main/KLA-Hyprland/hyprland-0.49.0_1/tomlplusplus-3.4.0_1.x86_64.xbps
+wget -c https://gitlab.com/sofija.p2018/kla-ot2/-/raw/main/KLA-Hyprland/hyprland-0.49.0_1/xdg-desktop-portal-hyprland-1.3.9_2.x86_64.xbps
+wget -c https://gitlab.com/sofija.p2018/kla-ot2/-/raw/main/KLA-Hyprland/xbps-program/tzupdate2-2.0_2.noarch.xbps
+wget -c https://gitlab.com/sofija.p2018/kla-ot2/-/raw/main/KLA-Hyprland/xbps-program/Create-xbps-tools-1.2_1.noarch.xbps
+wget -c https://gitlab.com/sofija.p2018/kla-ot2/-/raw/main/KLA-Hyprland/xbps-program/uextract-4.7_1.noarch.xbps
+wget -c https://gitlab.com/sofija.p2018/kla-ot2/-/raw/main/KLA-Hyprland/xbps-program/save2flash-1.9_0.noarch.xbps
+wget -c https://gitlab.com/sofija.p2018/kla-ot2/-/raw/main/KLA-Hyprland/xbps-program/pup-volume-monitor-1.15_0.x86_64.xbps
+wget -c https://gitlab.com/sofija.p2018/kla-ot2/-/raw/main/KLA-Hyprland/hyprland-0.49.0_1/Hyprland-rofi-home-bar-config-49.0_1.noarch.xbps
+wget -c https://gitlab.com/sofija.p2018/kla-ot2/-/raw/main/KLA-Hyprland/hyprland-0.49.0_1/Hyprland-icons-themes-4.0_1.noarch.xbps
+wget -c https://gitlab.com/sofija.p2018/kla-ot2/-/raw/main/KLA-Hyprland/xbps-program/nwg-drawer-0.4_8.x86_64.xbps
+wget -c https://gitlab.com/sofija.p2018/kla-ot2/-/raw/main/KLA-Hyprland/xbps-program/epdfview-0.1.8_12.x86_64.xbps
+wget -c https://gitlab.com/sofija.p2018/kla-ot2/-/raw/main/KLA-Hyprland/xbps-program/usbimager-1.0.10_1.x86_64.xbps
+wget -c https://gitlab.com/sofija.p2018/kla-ot2/-/raw/main/KLA-Hyprland/xbps-program/waypaper-2.6_1.x86_64.xbps
+wget -c https://gitlab.com/sofija.p2018/kla-ot2/-/raw/main/KLA-Hyprland/xbps-program/pcompress-1.5_1.noarch.xbps
+wget -c https://gitlab.com/sofija.p2018/kla-ot2/-/raw/main/KLA-Hyprland/xbps-program/hardinfo2-2.2.0_1.x86_64.xbps
+wget -c https://gitlab.com/sofija.p2018/kla-ot2/-/raw/main/KLA-Hyprland/xbps-program/Yradio-Hypr-1.8_1.noarch.xbps
+
+# Register and index packages
+cd /root
+xbps-rindex -a Build/*.xbps
+
+# Install
+xbps-install -y --repository=Build/ aquamarine-0.8.0_2
+
+# Install 
+xbps-install -y --repository=Build/ glaze-4.4.3_1
+
+# Install 
+xbps-install -y --repository=Build/ hyprcursor-0.1.12_1
+
+# Install 
+xbps-install -y --repository=Build/ hyprgraphics-0.1.3_2
+
+# Install 
+xbps-install -y --repository=Build/ hypridle-0.1.6_2
+
+# Install 
+xbps-install -y --repository=Build/ hyprland-0.49.0_1
+
+# Install
+xbps-install -y --repository=Build/ hyprland-devel-0.49.0_1
+
+# Install
+xbps-install -y --repository=Build/ hyprland-protocols-0.6.4_1
+
+# Install
+xbps-install -y --repository=Build/ hyprland-qt-support-0.1.0_1
+
+# Install
+xbps-install -y --repository=Build/ hyprland-qtutils-0.1.4_1
+
+# Install
+xbps-install -y --repository=Build/ hyprlang-0.6.3_1
+
+# Install
+xbps-install -y --repository=Build/ hyprlock-0.8.2_1
+
+# Install
+xbps-install -y --repository=Build/ hyprpaper-0.7.5_1
+
+# Install
+xbps-install -y --repository=Build/ hyprpolkitagent-0.1.2_1
+
+# Install
+xbps-install -y --repository=Build/ hyprsunset-0.2.0_1
+
+# Install
+xbps-install -y --repository=Build/ hyprsysteminfo-0.1.3_1
+
+# Install
+xbps-install -y --repository=Build/ hyprutils-0.7.1_1
+
+# Install
+xbps-install -y --repository=Build/ hyprwayland-scanner-0.4.4_1
+
+# Install
+xbps-install -y --repository=Build/ libspng-0.7.4_1
+
+# Install
+xbps-install -y --repository=Build/ sdbus-cpp-2.1.0_1
+
+# Install
+xbps-install -y --repository=Build/ tomlplusplus-3.4.0_1
+
+# Install
+xbps-install -y --repository=Build/ xdg-desktop-portal-hyprland-1.3.9_2
+
+# Install tzupdate
+xbps-install -y --repository=Build/ tzupdate2-2.0_2
+
+# Install Create-xbps-tools
+xbps-install -y --repository=Build/ Create-xbps-tools-1.2_1
+
+# Install uextract
+xbps-install -y --repository=Build/ uextract-4.7_1
+
+# Install save2flash
+xbps-install -y --repository=Build/ save2flash-1.9_0
+
+# Install pup-volume-monitor
+xbps-install -y --repository=Build/ pup-volume-monitor-1.15_0
+
+# Install Hyprland-rofi-bar-config
+xbps-install -y --repository=Build/ Hyprland-rofi-home-bar-config-49.0_1
+
+# Install Hyprland-icons-themes
+xbps-install -y --repository=Build/ Hyprland-icons-themes-4.0_1
+
+# Install nwg-drawer
+xbps-install -y --repository=Build/ nwg-drawer-0.4_8
+
+# Install epdfview
+xbps-install -y --repository=Build/ epdfview-0.1.8_12
+
+# Install usbimager
+xbps-install -y --repository=Build/ usbimager-1.0.10_1 
+
+# Install waypaper
+xbps-install -y --repository=Build/ waypaper-2.6_1
+
+# Install pcompress
+xbps-install -y --repository=Build/ pcompress-1.5_1
+
+# Install hardinfo2
+xbps-install -y --repository=Build/ hardinfo2-2.2.0_1
+
+# Install Yradio-Hypr
+xbps-install -y --repository=Build/ Yradio-Hypr-1.8_1
+
+# Set execution permissions recursivly for binaries and scripts
+chmod +x -R /usr/local/bin
+
+# Clean Up
+rm -r /root/Build
+rm /var/cache/xbps/*
+
+# firewall Gufw
+echo gufw \
+| xargs -n1 xbps-install -y
+ln -s /etc/sv/ufw /etc/runit/runsvdir/default/ufw
+#sed -i '/geany/abind = $mainMod, N, exec, sudo env WAYLAND_DISPLAY="$XDG_RUNTIME_DIR\/$WAYLAND_DISPLAY" XDG_RUNTIME_DIR=\/user\/run\/0 dbus-run-session -- gufw-pkexec' /home/spot/.config/hypr/configs/keybinds.conf
+
+rm /var/cache/xbps/*
+
+# enable some key services to start at boot
+ln -s /etc/sv/dbus /var/service
+ln -s /etc/sv/seatd /var/service
+ln -s /etc/sv/bluetoothd /var/service
+ln -s /etc/sv/polkitd /var/service
+ln -s /etc/sv/polkitd /etc/runit/runsvdir/default/polkitd
+ln -s /etc/sv/dbus /etc/runit/runsvdir/default/dbus
+ln -s /etc/sv/NetworkManager /etc/runit/runsvdir/default/NetworkManager
+ln -s /etc/sv/ntpd /etc/runit/runsvdir/default/ntpd  # /etc/sv/nptd is symlink to chronyd
+ln -s /etc/sv/seatd /etc/runit/runsvdir/default/seatd
+
+# set up passwd system
+pwconv
+grpconv
+printf "root\nroot\n" | passwd >/dev/null 2>&1 # Quietly set default root passwd to "root"
+# set root to use /bin/bash
+usermod --shell /bin/bash root
+
+# Give login user spot no-password admin polkit access rights
+mkdir -p /etc/polkit-1/rules/
+cat <<'49POLKIT' > /etc/polkit-1/rules/49-nopasswd-wheel.rules
+polkit.addRule(function(action, subject) {
+    if (subject.user == "spot")
+    {
+        return polkit.Result.YES;
+    }
+});
+49POLKIT
+
+# Set locale to en_US.UTF-8 
+sed -i 's/#en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/' /etc/default/libc-locales
+echo "LANG=en_US.UTF-8" >> /etc/environment
+xbps-reconfigure -f glibc-locales
+
+# Configure autologin
+#
+cp -R /etc/sv/agetty-tty1 /etc/sv/agetty-autologin-tty1
+# In following change 'spot' for 'root' if you want autologin as root
+sed -i 's/GETTY_ARGS.*/GETTY_ARGS="--autologin spot --noclear"/' /etc/sv/agetty-autologin-tty1/conf
+#
+# Use agetty-autologin-tty1 instead of agetty-tty1 
+rm -f /etc/runit/runsvdir/default/agetty-tty1
+ln -s /etc/sv/agetty-autologin-tty1 /etc/runit/runsvdir/default/agetty-autologin-tty1
+touch /etc/sv/agetty-tty1/down
+#
+# Remove this section if not wanting boot straight into wayland sway
+cat <<'AUTOLOGIN' > /etc/profile.d/autologin.sh
+# autologin on tty1
+if [ -z "${WAYLAND_DISPLAY}" ] && [ "${XDG_VTNR}" -eq 1 ]; then
+  dbus-run-session -- Hyprland   # use 'exec ...' here if you don't want back to tty1 on exit
+fi
+AUTOLOGIN
+
+# gks macro allows root to run gui apps when login as regular user (e.g. spot) desktop
+cat <<'GKS' >> ~/.bashrc
+# To run app as root user from regular user desktop use command: gks <waylandapp>
+gks () { xhost +si:localuser:root; sudo -H "$@"; xhost -si:localuser:root; }
+GKS
+
+# Some default configs for root 
+#
+# Default ~/ directories
+mkdir -p ~/.config/hypr
+mkdir -p ~/Desktop ~/Documents ~/Downloads ~/Music ~/Pictures ~/Public ~/Templates ~/Videos
+mkdir -p ~/my-applications ~/Startup
+
+# Some default configs for /home/spot 
+#
+# Default /home/spot directories
+mkdir -p /home/spot/.config/hypr
+mkdir -p /home/spot/Desktop /home/spot/Documents /home/spot/Downloads /home/spot/Music /home/spot/Pictures /home/spot/Public /home/spot/Templates /home/spot/Videos
+mkdir -p /home/spot/my-applications /home/spot/Startup /home/spot/Pictures/Screenshots
+
+# Set your timezone. Example:
+current_timezone="Etc/UTC"
+ln -sf /usr/share/zoneinfo/${current_timezone} /etc/localtime
+#
+# Some extra sway (global) configs
+mkdir -p /etc/sway/config.d
+cat <<'SWAYEXTRACONF' > /etc/sway/config.d/100-wiak_global
+# Can put global sway config entries in here
+# bind = $mainMod SHIFT,F, exec, 'sudo env WAYLAND_DISPLAY="$XDG_RUNTIME_DIR/$WAYLAND_DISPLAY"  XDG_RUNTIME_DIR=/user/run/0 dbus-run-session -- pcmanfm'
+# bind = $mainMod SHIFT,G, exec, 'sudo env WAYLAND_DISPLAY="$XDG_RUNTIME_DIR/$WAYLAND_DISPLAY"  XDG_RUNTIME_DIR=/user/run/0 dbus-run-session -- geany'
+# bind = $mainMod SHIFT,T, exec, 'sudo env WAYLAND_DISPLAY="$XDG_RUNTIME_DIR/$WAYLAND_DISPLAY"  XDG_RUNTIME_DIR=/user/run/0 dbus-run-session -- sakura'
+# bind = $mainMod CTRL,G, exec, 'sudo env WAYLAND_DISPLAY="$XDG_RUNTIME_DIR/$WAYLAND_DISPLAY"  XDG_RUNTIME_DIR=/user/run/0 dbus-run-session -- gparted'
+# bind = $mainMod, N, exec, 'sudo env WAYLAND_DISPLAY="$XDG_RUNTIME_DIR/$WAYLAND_DISPLAY" XDG_RUNTIME_DIR=/user/run/0 dbus-run-session -- gufw-pkexec' 
+SWAYEXTRACONF
+
+# Fetch various config files and default files
+# wget -c 
+
+# Configure system for multi-users
+#
+cp -af /root/. /etc/skel
+mkdir -p /etc/skel/.config /etc/skel/.cache /etc/skel/.local/share
+#
+# Create user spot and put in wheel group (and more) and give wheel group nopasswd sudo rights
+echo '%wheel ALL=(ALL) NOPASSWD: ALL' | (VISUAL="tee -a" visudo) # wheel group added to sudo no password required
+useradd -m -G audio,video,wheel,storage -s /bin/bash spot
+printf "spot\nspot" | passwd spot >/dev/null 2>&1 # Quietly set default spot passwd to "spot"
+
+# Set permissions
+# chmod 700 /run/user/$(id -u) 
+chown -R spot:spot /home/spot
+usermod -a -G audio spot
+usermod -a -G video spot
+usermod -a -G _seatd spot
+
+# add Hyprland github mirror repository-x86_64-glibc
+cat <<'SETMIRROR' > /etc/xbps.d/hyprland-void.conf
+repository=https://raw.githubusercontent.com/sofijacom/hyprland-void/repository-x86_64-glibc
+SETMIRROR
+
+# Install AppImage Manager (AM) utility. Refer: am -h for usage
+# For example: am -i chromium  # to install chromium AppImage to /opt/chromium and auto-create desktop file am-chromium.desktop
+
