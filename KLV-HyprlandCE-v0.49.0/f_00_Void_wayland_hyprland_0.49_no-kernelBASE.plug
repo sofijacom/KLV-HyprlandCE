@@ -59,13 +59,13 @@ echo wayvnc swappy wlclock grim zenity slurp grimshot maim micro pfetch hddtemp 
 | xargs -n1 xbps-install -Sy
 echo imv lxtask foot sakura geany leafpad pcmanfm gsimplecal-gtk3 ranger nnn git vim fish-shell \
 | xargs -n1 xbps-install -y
-echo galculator firefox smplayer brightnessctl mtpaint xdg-user-dirs hyprpicker imagemagick eza kvantum \
+echo galculator firefox smplayer brightnessctl mtpaint xdg-user-dirs hyprpicker imageMagick eza kvantum \
 | xargs -n1 xbps-install -y
 echo wvkbd clipman cliphist breeze-snow-cursor-theme breeze-obsidian-cursor-theme dconf nwg-look \
 | xargs -n1 xbps-install -y
 echo xwininfo xmessage cpupower neofetch octoxbps squashfs-tools gettext xhost e2fsprogs dosfstools mtools syslinux \
 | xargs -n1 xbps-install -y
-echo btop htop rsClock cmatrix gparted w3m w3m-img xarchiver kitty fontmanager \
+echo btop htop rsClock cmatrix gparted w3m w3m-img xarchiver kitty \
 | xargs -n1 xbps-install -y
 
 # Bluetooth
