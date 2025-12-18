@@ -35,8 +35,8 @@ echo font-bh-ttf cantarell-fonts font-liberation-ttf font-awesome6 font-fira-ttf
 echo qt5-wayland qt6-wayland bc j jq yad xorg-server-xwayland daemonize herbe xlsclients glfw-wayland \
 | xargs -n1 xbps-install -y
 
-# add Xlibe github mirror repository-x86_64-glibc
-cat <<'SETMIRROR' > /etc/xbps.d/99-repository-xlibre.conf
+# add Hyprland github mirror repository-x86_64-glibc
+cat <<'SETMIRROR' > /etc/xbps.d/99-repository-hyprland.conf
 repository=https://raw.githubusercontent.com/sofijacom/hyprland-void/repository-x86_64-glibc
 SETMIRROR
 
