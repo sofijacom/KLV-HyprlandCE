@@ -116,29 +116,6 @@ ln -s /etc/sv/cupsd /etc/runit/runsvdir/default/cupsd
 mkdir -p /root/Build
 cd /root/Build
 
-#wget -c https://gitlab.com/sofija.p2018/kla-ot2/-/raw/main/KLA-Hyprland/hyprland-0.49.0_1/aquamarine-0.8.0_2.x86_64.xbps
-#wget -c https://gitlab.com/sofija.p2018/kla-ot2/-/raw/main/KLA-Hyprland/hyprland-0.49.0_1/glaze-4.4.3_1.x86_64.xbps
-#wget -c https://gitlab.com/sofija.p2018/kla-ot2/-/raw/main/KLA-Hyprland/hyprland-0.49.0_1/hyprcursor-0.1.12_1.x86_64.xbps
-#wget -c https://gitlab.com/sofija.p2018/kla-ot2/-/raw/main/KLA-Hyprland/hyprland-0.49.0_1/hyprgraphics-0.1.3_2.x86_64.xbps
-#wget -c https://gitlab.com/sofija.p2018/kla-ot2/-/raw/main/KLA-Hyprland/hyprland-0.49.0_1/hypridle-0.1.6_2.x86_64.xbps
-#wget -c https://gitlab.com/sofija.p2018/kla-ot2/-/raw/main/KLA-Hyprland/hyprland-0.49.0_1/hyprland-0.49.0_1.x86_64.xbps
-#wget -c https://gitlab.com/sofija.p2018/kla-ot2/-/raw/main/KLA-Hyprland/hyprland-0.49.0_1/hyprland-devel-0.49.0_1.x86_64.xbps
-#wget -c https://gitlab.com/sofija.p2018/kla-ot2/-/raw/main/KLA-Hyprland/hyprland-0.49.0_1/hyprland-protocols-0.6.4_1.x86_64.xbps
-#wget -c https://gitlab.com/sofija.p2018/kla-ot2/-/raw/main/KLA-Hyprland/hyprland-0.49.0_1/hyprland-qt-support-0.1.0_1.x86_64.xbps
-#wget -c https://gitlab.com/sofija.p2018/kla-ot2/-/raw/main/KLA-Hyprland/hyprland-0.49.0_1/hyprland-qtutils-0.1.4_1.x86_64.xbps
-#wget -c https://gitlab.com/sofija.p2018/kla-ot2/-/raw/main/KLA-Hyprland/hyprland-0.49.0_1/hyprlang-0.6.3_1.x86_64.xbps
-#wget -c https://gitlab.com/sofija.p2018/kla-ot2/-/raw/main/KLA-Hyprland/hyprland-0.49.0_1/hyprlock-0.8.2_1.x86_64.xbps
-#wget -c https://gitlab.com/sofija.p2018/kla-ot2/-/raw/main/KLA-Hyprland/hyprland-0.49.0_1/hyprpaper-0.7.5_1.x86_64.xbps
-#wget -c https://gitlab.com/sofija.p2018/kla-ot2/-/raw/main/KLA-Hyprland/hyprland-0.49.0_1/hyprpolkitagent-0.1.2_1.x86_64.xbps
-#wget -c https://gitlab.com/sofija.p2018/kla-ot2/-/raw/main/KLA-Hyprland/hyprland-0.49.0_1/hyprsunset-0.2.0_1.x86_64.xbps
-#wget -c https://gitlab.com/sofija.p2018/kla-ot2/-/raw/main/KLA-Hyprland/hyprland-0.49.0_1/hyprsysteminfo-0.1.3_1.x86_64.xbps
-#wget -c https://gitlab.com/sofija.p2018/kla-ot2/-/raw/main/KLA-Hyprland/hyprland-0.49.0_1/hyprutils-0.7.1_1.x86_64.xbps
-#wget -c https://gitlab.com/sofija.p2018/kla-ot2/-/raw/main/KLA-Hyprland/hyprland-0.49.0_1/hyprwayland-scanner-0.4.4_1.x86_64.xbps
-#wget -c https://gitlab.com/sofija.p2018/kla-ot2/-/raw/main/KLA-Hyprland/hyprland-0.49.0_1/libspng-0.7.4_1.x86_64.xbps
-#wget -c https://gitlab.com/sofija.p2018/kla-ot2/-/raw/main/KLA-Hyprland/hyprland-0.49.0_1/sdbus-cpp-2.1.0_1.x86_64.xbps
-#wget -c https://gitlab.com/sofija.p2018/kla-ot2/-/raw/main/KLA-Hyprland/hyprland-0.49.0_1/tomlplusplus-3.4.0_1.x86_64.xbps
-#wget -c https://gitlab.com/sofija.p2018/kla-ot2/-/raw/main/KLA-Hyprland/hyprland-0.49.0_1/xdg-desktop-portal-hyprland-1.3.9_2.x86_64.xbps
-
 wget -c https://gitlab.com/sofija.p2018/kla-ot2/-/raw/main/KLA-Hyprland/xbps-program/tzupdate2-2.0_2.noarch.xbps
 wget -c https://gitlab.com/sofija.p2018/kla-ot2/-/raw/main/KLA-Hyprland/xbps-program/Create-xbps-tools-1.2_1.noarch.xbps
 wget -c https://gitlab.com/sofija.p2018/kla-ot2/-/raw/main/KLA-Hyprland/xbps-program/uextract-4.7_1.noarch.xbps
@@ -157,72 +134,6 @@ wget -c https://gitlab.com/sofija.p2018/kla-ot2/-/raw/main/KLA-Hyprland/xbps-pro
 # Register and index packages
 cd /root
 xbps-rindex -a Build/*.xbps
-
-# Install
-xbps-install -y --repository=Build/ aquamarine-0.8.0_2
-
-# Install 
-#xbps-install -y --repository=Build/ glaze-4.4.3_1
-
-# Install 
-#xbps-install -y --repository=Build/ hyprcursor-0.1.12_1
-
-# Install 
-#xbps-install -y --repository=Build/ hyprgraphics-0.1.3_2
-
-# Install 
-#xbps-install -y --repository=Build/ hypridle-0.1.6_2
-
-# Install 
-#xbps-install -y --repository=Build/ hyprland-0.49.0_1
-
-# Install
-#xbps-install -y --repository=Build/ hyprland-devel-0.49.0_1
-
-# Install
-#xbps-install -y --repository=Build/ hyprland-protocols-0.6.4_1
-
-# Install
-#xbps-install -y --repository=Build/ hyprland-qt-support-0.1.0_1
-
-# Install
-#xbps-install -y --repository=Build/ hyprland-qtutils-0.1.4_1
-
-# Install
-#xbps-install -y --repository=Build/ hyprlang-0.6.3_1
-
-# Install
-#xbps-install -y --repository=Build/ hyprlock-0.8.2_1
-
-# Install
-#xbps-install -y --repository=Build/ hyprpaper-0.7.5_1
-
-# Install
-#xbps-install -y --repository=Build/ hyprpolkitagent-0.1.2_1
-
-# Install
-#xbps-install -y --repository=Build/ hyprsunset-0.2.0_1
-
-# Install
-#xbps-install -y --repository=Build/ hyprsysteminfo-0.1.3_1
-
-# Install
-#xbps-install -y --repository=Build/ hyprutils-0.7.1_1
-
-# Install
-#xbps-install -y --repository=Build/ hyprwayland-scanner-0.4.4_1
-
-# Install
-#xbps-install -y --repository=Build/ libspng-0.7.4_1
-
-# Install
-#xbps-install -y --repository=Build/ sdbus-cpp-2.1.0_1
-
-# Install
-#xbps-install -y --repository=Build/ tomlplusplus-3.4.0_1
-
-# Install
-#xbps-install -y --repository=Build/ xdg-desktop-portal-hyprland-1.3.9_2
 
 # Install tzupdate
 xbps-install -y --repository=Build/ tzupdate2-2.0_2
