@@ -300,11 +300,6 @@ usermod -a -G audio spot
 usermod -a -G video spot
 usermod -a -G _seatd spot
 
-# add Hyprland github mirror repository-x86_64-glibc
-#cat <<'SETMIRROR' > /etc/xbps.d/hyprland-void.conf
-#repository=https://raw.githubusercontent.com/sofijacom/hyprland-void/repository-x86_64-glibc
-#SETMIRROR
-
 # Install AppImage Manager (AM) utility. Refer: am -h for usage
 # For example: am -i chromium  # to install chromium AppImage to /opt/chromium and auto-create desktop file am-chromium.desktop
 
