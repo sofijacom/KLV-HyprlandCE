@@ -116,7 +116,7 @@ echo galculator firefox smplayer brightnessctl mtpaint xdg-user-dirs hyprpicker 
 | xargs -n1 xbps-install -y
 echo xwininfo xmessage cpupower neofetch octoxbps squashfs-tools gettext xhost e2fsprogs dosfstools mtools syslinux \
 | xargs -n1 xbps-install -y
-echo wvkbd clipman cliphist btop htop rsClock cmatrix gparted w3m w3m-img xarchiver kitty \
+echo wvkbd clipman cliphist dconf btop htop rsClock cmatrix gparted w3m w3m-img xarchiver kitty \
 | xargs -n1 xbps-install -y
 
 # Bluetooth
