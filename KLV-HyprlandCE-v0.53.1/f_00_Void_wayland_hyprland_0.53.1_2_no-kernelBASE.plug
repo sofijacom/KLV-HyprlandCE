@@ -114,11 +114,9 @@ echo imv lxtask foot sakura geany leafpad pcmanfm gsimplecal-gtk3 ranger nnn git
 | xargs -n1 xbps-install -y
 echo galculator firefox smplayer brightnessctl mtpaint xdg-user-dirs hyprpicker ImageMagick eza kvantum \
 | xargs -n1 xbps-install -y
-echo wvkbd clipman cliphist \ # breeze-snow-cursor-theme breeze-obsidian-cursor-theme dconf
-| xargs -n1 xbps-install -y
 echo xwininfo xmessage cpupower neofetch octoxbps squashfs-tools gettext xhost e2fsprogs dosfstools mtools syslinux \
 | xargs -n1 xbps-install -y
-echo btop htop rsClock cmatrix gparted w3m w3m-img xarchiver kitty \
+echo wvkbd clipman cliphist btop htop rsClock cmatrix gparted w3m w3m-img xarchiver kitty \
 | xargs -n1 xbps-install -y
 
 # Bluetooth
@@ -299,9 +297,6 @@ cat <<'SWAYEXTRACONF' > /etc/sway/config.d/100-wiak_global
 # bind = $mainMod, N, exec, 'sudo env WAYLAND_DISPLAY="$XDG_RUNTIME_DIR/$WAYLAND_DISPLAY" XDG_RUNTIME_DIR=/user/run/0 dbus-run-session -- gufw-pkexec' 
 SWAYEXTRACONF
 
-# Fetch various config files and default files
-# wget -c 
-
 # Configure system for multi-users
 #
 cp -af /root/. /etc/skel
@@ -319,7 +314,9 @@ usermod -a -G audio spot
 usermod -a -G video spot
 usermod -a -G _seatd spot
 
-# add Hyprland github mirror repository-x86_64-glibc
+#-----------------------------------------------------------------------
+echo "desktop build process finished"
+
 # cat <<'SETMIRROR' > /etc/xbps.d/hyprland-void.conf
 # repository=https://raw.githubusercontent.com/sofijacom/hyprland-void/repository-x86_64-glibc
 # SETMIRROR
