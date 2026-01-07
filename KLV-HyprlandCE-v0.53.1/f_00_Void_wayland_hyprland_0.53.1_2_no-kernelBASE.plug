@@ -83,7 +83,7 @@ echo hyprland hyprland-devel hyprland-protocols hyprland-qt-support hyprland-qtu
 | xargs -n1 xbps-install -Sy
 echo glaze hyprpaper hyprlock hyprpolkitagent hyprsunset hyprsysteminfo \
 | xargs -n1 xbps-install -y
-echo libspng sdbus-cpp aquamarine hypridle hyprutils \
+echo libspng sdbus-cpp aquamarine hypridle hyprutils hyprshot hyprland-guiutils \
 | xargs -n1 xbps-install -y
 echo nwg-drawer waypaper nwg-look \
 | xargs -n1 xbps-install -y
@@ -258,7 +258,7 @@ touch /etc/sv/agetty-tty1/down
 cat <<'AUTOLOGIN' > /etc/profile.d/autologin.sh
 # autologin on tty1
 if [ -z "${WAYLAND_DISPLAY}" ] && [ "${XDG_VTNR}" -eq 1 ]; then
-  dbus-run-session -- Hyprland   # use 'exec ...' here if you don't want back to tty1 on exit
+  dbus-run-session -- start-hyprland   # use 'exec ...' here if you don't want back to tty1 on exit Hyprland-start-hyprland
 fi
 AUTOLOGIN
 
@@ -316,11 +316,4 @@ usermod -a -G _seatd spot
 
 #-----------------------------------------------------------------------
 echo "desktop build process finished"
-
-# cat <<'SETMIRROR' > /etc/xbps.d/hyprland-void.conf
-# repository=https://raw.githubusercontent.com/sofijacom/hyprland-void/repository-x86_64-glibc
-# SETMIRROR
-
-# Install AppImage Manager (AM) utility. Refer: am -h for usage
-# For example: am -i chromium  # to install chromium AppImage to /opt/chromium and auto-create desktop file am-chromium.desktop
 
