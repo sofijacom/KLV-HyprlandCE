@@ -1,7 +1,7 @@
 # f_00_Void_wayland_hyprland_no-kernelBASE.plug
 # Sofiya Creation date 06.01.2024; Revision date:10.02.2025
 # Copyright FirstRib team 06.01.2024+; Licence MIT (aka X11 license)
-# version="0.49.0_1"; revision="CE-6.0"
+# version="0.53.1_2"; revision="CE-7.0"
 # Can boot result using suitable huge-kernel/00modules/01firmware and FR skeleton initrd
 
 ## NOTES:
@@ -19,10 +19,10 @@ echo xdg-utils binutils snappy curl wget unzip xz zstd zip 7zip p7zip fuse zsync
 echo gvfs gvfs-mtp gvfs-smb gvfs-cdda ntfs-3g \
 | xargs -n1 xbps-install -y
 echo bash vpm light chrony \
-| xargs -n1 xbps-install -y  # or maybe use ntpd?
+| xargs -n1 xbps-install -y
 echo NetworkManager kmod libkmod \
-| xargs -n1 xbps-install -y  # includes wpa_supplicant as dependency
-echo python3 python3-PyVirtualDisplay python3-gobject python3-requests python3-ijson \
+| xargs -n1 xbps-install -y
+echo python3-requests python3-ijson python3 python3-PyVirtualDisplay python3-gobject \
 | xargs -n1 xbps-install -Sy
 echo SwayNotificationCenter wofi rofi wmenu lavalauncher Waybar swaybg \
 | xargs -n1 xbps-install -y
@@ -42,7 +42,7 @@ SETMIRROR
 
 # add nwg github nwg-repository.conf
 cat <<'SETMIRROR' > /etc/xbps.d/nwg-repository.conf
-repository=https://github.com/Kennel-Linux/nwg/releases/latest/download/
+repository=https://github.com/Kennel-Linux/nwg/releases/latest/download
 SETMIRROR
 
 cat <<'EOF' >> /var/db/xbps/keys/b3:21:c4:43:d9:38:6f:ec:36:64:0d:65:37:13:c1:fe.plist
@@ -77,12 +77,16 @@ cat <<'EOF' >> /var/db/xbps/keys/00:ca:42:57:c9:c0:9a:ec:94:b4:7d:97:e5:a9:aa:1e
 
 EOF
 
-xbps-install -Su
+xbps-install -Syu
 
-xbps-install -y hyprland hyprland-devel hyprland-protocols hyprland-qt-support hyprland-qtutils xdg-desktop-portal-hyprland tomlplusplus
-xbps-install -y glaze hyprpaper hyprlock hyprpolkitagent hyprsunset hyprsysteminfo 
-xbps-install -y libspng sdbus-cpp aquamarine hypridle hyprutils
-xbps-install -y nwg-drawer waypaper nwg-look
+echo hyprland hyprland-devel hyprland-protocols hyprland-qt-support hyprland-qtutils xdg-desktop-portal-hyprland tomlplusplus \
+| xargs -n1 xbps-install -Sy
+echo glaze hyprpaper hyprlock hyprpolkitagent hyprsunset hyprsysteminfo \
+| xargs -n1 xbps-install -y
+echo libspng sdbus-cpp aquamarine hypridle hyprutils \
+| xargs -n1 xbps-install -y
+echo nwg-drawer waypaper nwg-look \
+| xargs -n1 xbps-install -y
 
 # System Audio/Multimedia /wireplumber
 echo pipewire wireplumber alsa-pipewire pavucontrol pamixer ffmpeg mpv qpwgraph cava cava-gui \
@@ -110,7 +114,7 @@ echo imv lxtask foot sakura geany leafpad pcmanfm gsimplecal-gtk3 ranger nnn git
 | xargs -n1 xbps-install -y
 echo galculator firefox smplayer brightnessctl mtpaint xdg-user-dirs hyprpicker ImageMagick eza kvantum \
 | xargs -n1 xbps-install -y
-echo wvkbd clipman cliphist breeze-snow-cursor-theme breeze-obsidian-cursor-theme dconf nwg-look \
+echo wvkbd clipman cliphist \ # breeze-snow-cursor-theme breeze-obsidian-cursor-theme dconf
 | xargs -n1 xbps-install -y
 echo xwininfo xmessage cpupower neofetch octoxbps squashfs-tools gettext xhost e2fsprogs dosfstools mtools syslinux \
 | xargs -n1 xbps-install -y
@@ -143,8 +147,8 @@ wget -c https://gitlab.com/sofija.p2018/kla-ot2/-/raw/main/KLA-Hyprland/xbps-pro
 wget -c https://gitlab.com/sofija.p2018/kla-ot2/-/raw/main/KLA-Hyprland/xbps-program/uextract-4.7_1.noarch.xbps
 wget -c https://gitlab.com/sofija.p2018/kla-ot2/-/raw/main/KLA-Hyprland/xbps-program/save2flash-1.9_0.noarch.xbps
 wget -c https://gitlab.com/sofija.p2018/kla-ot2/-/raw/main/KLA-Hyprland/xbps-program/pup-volume-monitor-1.15_0.x86_64.xbps
-wget -c https://gitlab.com/sofija.p2018/kla-ot2/-/raw/main/KLA-Hyprland/hyprland-0.49.0_1/Hyprland-rofi-home-bar-config-49.0_1.noarch.xbps
-wget -c https://gitlab.com/sofija.p2018/kla-ot2/-/raw/main/KLA-Hyprland/hyprland-0.49.0_1/Hyprland-icons-themes-4.0_1.noarch.xbps
+wget -c https://gitlab.com/sofija.p2018/kla-ot2/-/raw/main/KLA-Hyprland/hyprland-0.53.1_2/Hyprland-rofi-home-bar-config-0.53.1_2.noarch.xbps
+wget -c https://gitlab.com/sofija.p2018/kla-ot2/-/raw/main/KLA-Hyprland/hyprland-0.53.1_2/Hyprland-icons-themes-4.0_1.noarch.xbps
 wget -c https://gitlab.com/sofija.p2018/kla-ot2/-/raw/main/KLA-Hyprland/xbps-program/epdfview-0.1.8_12.x86_64.xbps
 wget -c https://gitlab.com/sofija.p2018/kla-ot2/-/raw/main/KLA-Hyprland/xbps-program/usbimager-1.0.10_1.x86_64.xbps
 wget -c https://gitlab.com/sofija.p2018/kla-ot2/-/raw/main/KLA-Hyprland/xbps-program/pcompress-1.5_1.noarch.xbps
@@ -171,7 +175,7 @@ xbps-install -y --repository=Build/ save2flash-1.9_0
 xbps-install -y --repository=Build/ pup-volume-monitor-1.15_0
 
 # Install Hyprland-rofi-bar-config
-xbps-install -y --repository=Build/ Hyprland-rofi-home-bar-config-49.0_1
+xbps-install -y --repository=Build/ Hyprland-rofi-home-bar-config-0.53.1_2
 
 # Install Hyprland-icons-themes
 xbps-install -y --repository=Build/ Hyprland-icons-themes-4.0_1
