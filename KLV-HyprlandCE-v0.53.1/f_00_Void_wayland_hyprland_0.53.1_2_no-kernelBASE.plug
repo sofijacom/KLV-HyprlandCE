@@ -26,7 +26,7 @@ echo python3-requests python3-ijson python3 python3-PyVirtualDisplay python3-gob
 | xargs -n1 xbps-install -Sy
 echo SwayNotificationCenter wofi rofi wmenu lavalauncher Waybar swaybg \
 | xargs -n1 xbps-install -y
-echo wayland-utils wev wtype wl-clipboard wayclip wf-recorder wob wdisplays light \
+echo wayland-utils wev wtype wl-clipboard wayclip wf-recorder wob light \
 | xargs -n1 xbps-install -y
 echo sway-audio-idle-inhibit wlr-randr wlsunset wlogout playerctl conky pywal swww \
 | xargs -n1 xbps-install -y
@@ -85,7 +85,7 @@ echo glaze hyprpaper hyprlock hyprpolkitagent hyprsunset hyprsysteminfo \
 | xargs -n1 xbps-install -y
 echo libspng sdbus-cpp aquamarine hypridle hyprutils hyprshot hyprland-guiutils \
 | xargs -n1 xbps-install -y
-echo nwg-drawer waypaper nwg-look \
+echo nwg-drawer waypaper nwg-displays nwg-look \
 | xargs -n1 xbps-install -y
 
 # System Audio/Multimedia /wireplumber
