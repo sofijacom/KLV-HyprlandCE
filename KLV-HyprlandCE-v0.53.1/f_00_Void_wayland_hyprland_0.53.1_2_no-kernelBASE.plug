@@ -20,7 +20,7 @@ echo gvfs gvfs-mtp gvfs-smb gvfs-cdda ntfs-3g \
 | xargs -n1 xbps-install -y
 echo bash vpm light chrony \
 | xargs -n1 xbps-install -y
-echo NetworkManager kmod libkmod \
+echo NetworkManager kmod libkmod void-artwork \
 | xargs -n1 xbps-install -y
 echo python3-requests python3-ijson python3 python3-PyVirtualDisplay python3-gobject \
 | xargs -n1 xbps-install -Sy
