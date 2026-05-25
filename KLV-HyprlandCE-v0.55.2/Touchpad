@@ -1,0 +1,10 @@
+grep -E -i 'alps|elan|etps|synap' /proc/bus/input/devices
+
+
+Name="ELAN0420:00 04F3:3240 Mouse"
+
+
+ELAN0420:00 04F3:3240 Touchpad
+
+
+ETPS/2 Elantech Touchpad
