@@ -79,7 +79,7 @@ EOF
 
 xbps-install -Syu
 
-echo hyprland hyprland-devel hyprland-protocols hyprland-qt-support hyprland-qtutils xdg-desktop-portal-hyprland tomlplusplus \
+echo hyprland hyprland-devel hyprland-protocols hyprland-qt-support xdg-desktop-portal-hyprland tomlplusplus \
 | xargs -n1 xbps-install -Sy
 echo glaze hyprpaper hyprlock hyprpolkitagent hyprsunset hyprsysteminfo \
 | xargs -n1 xbps-install -y
