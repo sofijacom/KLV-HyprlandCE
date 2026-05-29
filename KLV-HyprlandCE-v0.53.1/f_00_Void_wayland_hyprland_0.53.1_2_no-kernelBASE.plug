@@ -97,10 +97,10 @@ mkdir -p /etc/pipewire/pipewire.conf.d
 ln -s /usr/share/examples/pipewire/20-pipewire-pulse.conf /etc/pipewire/pipewire.conf.d/
 
 # for system-wide customization or for individual customization.
-: "${XDG_CONFIG_HOME:=${HOME}/.config}"
-mkdir -p "${XDG_CONFIG_HOME}/pipewire/pipewire.conf.d"
-ln -s /usr/share/examples/wireplumber/10-wireplumber.conf "${XDG_CONFIG_HOME}/pipewire/pipewire.conf.d/"
-ln -s /usr/share/examples/pipewire/20-pipewire-pulse.conf "${XDG_CONFIG_HOME}/pipewire/pipewire.conf.d/"
+# : "${XDG_CONFIG_HOME:=${HOME}/.config}"
+# mkdir -p "${XDG_CONFIG_HOME}/pipewire/pipewire.conf.d"
+# ln -s /usr/share/examples/wireplumber/10-wireplumber.conf "${XDG_CONFIG_HOME}/pipewire/pipewire.conf.d/"
+# ln -s /usr/share/examples/pipewire/20-pipewire-pulse.conf "${XDG_CONFIG_HOME}/pipewire/pipewire.conf.d/"
 
 # ALSA Integration
 mkdir -p /etc/alsa/conf.d
