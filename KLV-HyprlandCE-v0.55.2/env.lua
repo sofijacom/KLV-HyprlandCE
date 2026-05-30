@@ -11,8 +11,8 @@ hl.env("GBM_BACKEND",                "nvidia-drm")
 hl.env("NVD_BACKEND",                "direct")
 
 -- Cursor
-hl.env("HYPRCURSOR_THEME", "Plasma-Overdose-BW")
-hl.env("HYPRCURSOR_SIZE",  "14")
+hl.env("HYPRCURSOR_THEME", "")
+hl.env("HYPRCURSOR_SIZE",  "21")
 
 -- QT
 hl.env("QT_QPA_PLATFORM",                  "wayland")
